@@ -2,5 +2,13 @@
     <string name="app_name">ToDoアプリ</string>
     <string name="message2345">Message2345</string>
     <string name="meat" />
+    <string name="scheduleTime">予定日</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="notification">通知</string>
+    <string name="sendNotification">通知する</string>
+    <string name="doNotSendNotification">通知しない</string>
+    <string name="memo">メモ</string>
+    <string name="sendNotificationSchedule">予定を通知</string>
 </resources>
 

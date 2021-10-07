@@ -1,5 +1,6 @@
 package com.example.todoapp
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -47,5 +48,9 @@ class MainActivity : AppCompatActivity() {
         }
         override fun getItemCount(): Int = mutableList.size
 
+    }
+    fun onMakeToDoItemClick(view: View){
+        val intentMakeToDoItem = Intent(this@MainActivity,MakeToDoItemActivity::class.java);
+        startActivity(intentMakeToDoItem)
     }
 }
