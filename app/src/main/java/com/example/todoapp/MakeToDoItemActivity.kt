@@ -1,13 +1,7 @@
 package com.example.todoapp
 
-import android.app.Activity
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.text.Editable
-import android.view.View
-import android.widget.EditText
-import android.widget.RadioGroup
 
 class MakeToDoItemActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

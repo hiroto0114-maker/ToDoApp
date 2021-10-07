@@ -70,8 +70,8 @@
                 android:id="@+id/editScheduledTime"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="#00000000"
                 android:ems="10"
+                android:text="@={viewModel.scheduledDate}"
                 tools:layout_editor_absoluteX="32dp"
                 tools:layout_editor_absoluteY="442dp" />
 

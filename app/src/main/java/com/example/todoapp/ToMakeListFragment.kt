@@ -1,17 +1,16 @@
 package com.example.todoapp
 
-import android.content.Intent
+import android.app.DatePickerDialog
 import android.os.Bundle
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
-import android.widget.Button
-import android.widget.EditText
-import android.widget.RadioGroup
+import android.widget.*
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.ViewModelProvider
 import com.example.todoapp.databinding.FragmentToMakeListBinding
+import java.util.*
+
+
+
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -35,12 +34,37 @@ class ToMakeListFragment : Fragment(R.layout.fragment_to_make_list) {
         }
     }
     private val viewModel:ToDoMakeViewModel by viewModels()
-
+    private val tvMenuName = view?.findViewById<EditText>(R.id.editScheduledTime)
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val binding = FragmentToMakeListBinding.bind(view)
         binding.lifecycleOwner=viewLifecycleOwner
         binding.viewModel=viewModel
+        val tvMenuName = view?.findViewById<EditText>(R.id.editScheduledTime)
+        tvMenuName.setOnClickListener {
+            val tvMenuName = view.findViewById<EditText>(R.id.editScheduledTime)
+            val calender = Calendar.getInstance()
+            //Calendarインスタンスを取得
+            //Calendarインスタンスを取得
+            val date = Calendar.getInstance()
+
+            //DatePickerDialogインスタンスを取得
+
+            //DatePickerDialogインスタンスを取得
+            val datePickerDialog = DatePickerDialog(
+                requireContext(),
+                { view, year, month, dayOfMonth -> //setした日付を取得して表示
+                    tvMenuName?.setText(String.format("%d / %02d / %02d", year, month + 1, dayOfMonth))
+                },
+                date[Calendar.YEAR],
+                date[Calendar.MONTH],
+                date[Calendar.DATE]
+            )
+
+            //dialogを表示
+            datePickerDialog.show()
+        }
+
     }
 
     companion object {
