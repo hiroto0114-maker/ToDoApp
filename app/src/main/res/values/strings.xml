@@ -10,5 +10,6 @@
     <string name="doNotSendNotification">通知しない</string>
     <string name="memo">メモ</string>
     <string name="sendNotificationSchedule">予定を通知</string>
+    <string name="title">タイトル</string>
 </resources>
 

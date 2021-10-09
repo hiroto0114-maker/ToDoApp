@@ -34,16 +34,14 @@ class ToMakeListFragment : Fragment(R.layout.fragment_to_make_list) {
         }
     }
     private val viewModel:ToDoMakeViewModel by viewModels()
-    private val tvMenuName = view?.findViewById<EditText>(R.id.editScheduledTime)
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val binding = FragmentToMakeListBinding.bind(view)
         binding.lifecycleOwner=viewLifecycleOwner
         binding.viewModel=viewModel
-        val tvMenuName = view?.findViewById<EditText>(R.id.editScheduledTime)
-        tvMenuName.setOnClickListener {
-            val tvMenuName = view.findViewById<EditText>(R.id.editScheduledTime)
-            val calender = Calendar.getInstance()
+        val tvMenuName = view.findViewById<TextView>(R.id.editScheduledTime)
+        tvMenuName.setOnClickListener{
+            val tvMenuName = view.findViewById<TextView>(R.id.editScheduledTime)
             //Calendarインスタンスを取得
             //Calendarインスタンスを取得
             val date = Calendar.getInstance()
