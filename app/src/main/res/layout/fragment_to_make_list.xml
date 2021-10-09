@@ -14,26 +14,23 @@
         tools:context=".ToMakeListFragment">
 
 
-        <TextView
+        <EditText
             android:id="@+id/title"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="40dp"
             android:layout_marginStart="30dp"
             android:layout_marginTop="30dp"
             android:layout_marginEnd="30dp"
             android:background="@drawable/shape_style"
-            android:ems="10"
             android:hint="@string/title"
             android:text="@={viewModel.title}"
-            android:paddingLeft="10dp"
-            android:paddingTop="10dp"
-            android:paddingBottom="10dp"
             android:textSize="15sp"
+            android:gravity="center"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
+        <EditText
             android:id="@+id/memo"
             android:layout_width="0dp"
             android:layout_height="160dp"
@@ -41,8 +38,7 @@
             android:layout_marginEnd="30dp"
             android:background="@drawable/shape_style"
             android:hint="@string/memo"
-            android:paddingTop="67dp"
-            android:paddingLeft="10dp"
+            android:gravity="center"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
@@ -129,7 +125,7 @@
             android:layout_marginBottom="10dp"
             android:text="@string/sendNotificationSchedule"
             android:enabled="@{viewModel.isButtonEnabled}"
-            android:elevation="5dp"
+            android:elevation="50dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

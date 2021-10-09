@@ -8,19 +8,17 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.CheckBox
 import android.widget.TextView
-import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
-import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
 class MainActivity : AppCompatActivity() {
-    lateinit var recyclerView: RecyclerView
+    private lateinit var recyclerView: RecyclerView
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        var viewModel: ToDoListViewModel = ViewModelProvider(this).get(ToDoListViewModel::class.java)
+        val viewModel: ToDoListViewModel = ViewModelProvider(this).get(ToDoListViewModel::class.java)
         recyclerView = findViewById(R.id.lvMenu)
         recyclerView.layoutManager = LinearLayoutManager(this)
         val adapter = MyRecyclerViewAdapter(viewModel.menuList)
@@ -29,7 +27,7 @@ class MainActivity : AppCompatActivity() {
     class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val titleText: TextView
         val timeText: TextView
-        val checkBox: CheckBox
+        private val checkBox: CheckBox
         init {
             titleText = itemView.findViewById(R.id.title)
             timeText = itemView.findViewById(R.id.time)
@@ -50,7 +48,7 @@ class MainActivity : AppCompatActivity() {
 
     }
     fun onMakeToDoItemClick(view: View){
-        val intentMakeToDoItem = Intent(this@MainActivity,MakeToDoItemActivity::class.java);
+        val intentMakeToDoItem = Intent(this@MainActivity,MakeToDoItemActivity::class.java)
         startActivity(intentMakeToDoItem)
     }
 }

@@ -1,7 +1,5 @@
 package com.example.todoapp
 
-import android.widget.EditText
-import android.widget.TextView
 import androidx.lifecycle.MediatorLiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -13,12 +11,10 @@ class ToDoMakeViewModel : ViewModel(){
     val isButtonEnabled = MediatorLiveData<Boolean>()
     init {
         isButtonEnabled.addSource(title){
-            title.value?.isNotBlank()==true && (scheduledDate.value?.isNotBlank() == true)
+            (title.value?.isNotBlank()==true) && (scheduledDate.value?.isNotBlank() == true)
         }
         isButtonEnabled.addSource(scheduledDate){
-            title.value?.isNotBlank()==true && (scheduledDate.value?.isNotBlank() == true)
+            (title.value?.isNotBlank()==true) && (scheduledDate.value?.isNotBlank() == true)
         }
     }
-
-
 }
