@@ -9,6 +9,7 @@ class ToDoMakeViewModel : ViewModel(){
     val title = MutableLiveData<String>()
     val scheduledDate = MutableLiveData<String>()
     val isButtonEnabled = MediatorLiveData<Boolean>()
+
     init {
         isButtonEnabled.addSource(title){
             (title.value?.isNotBlank()==true) && (scheduledDate.value?.isNotBlank() == true)

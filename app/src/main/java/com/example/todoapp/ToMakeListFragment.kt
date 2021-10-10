@@ -40,6 +40,7 @@ class ToMakeListFragment : Fragment(R.layout.fragment_to_make_list) {
         binding.lifecycleOwner=viewLifecycleOwner
         binding.viewModel=viewModel
         val tvMenuName = view.findViewById<TextView>(R.id.editScheduledTime)
+
         tvMenuName.setOnClickListener{
             //Calendarインスタンスを取得
             //Calendarインスタンスを取得
@@ -51,10 +52,10 @@ class ToMakeListFragment : Fragment(R.layout.fragment_to_make_list) {
             val datePickerDialog = DatePickerDialog(
                 requireContext(),
                 { view, year, month, dayOfMonth -> //setした日付を取得して表示
-                    tvMenuName.setText(String.format("%d / %02d / %02d", year, month + 1, dayOfMonth))
+                    viewModel.scheduledDate.value= String.format("%d / %02d / %02d", year, month + 1, dayOfMonth)
                 },
-                date[Calendar.MONTH],
                 date[Calendar.YEAR],
+                date[Calendar.MONTH],
                 date[Calendar.DATE]
             )
 
