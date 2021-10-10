@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".DetailToDoAppActivity">
     <fragment
-        android:id="@+id/DetailToDoFragment"
+        android:id="@+id/detailToDoFragment"
         android:name="com.example.todoapp.DetailToDoFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
