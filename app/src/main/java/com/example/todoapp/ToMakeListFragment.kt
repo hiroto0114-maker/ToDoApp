@@ -4,6 +4,7 @@ import android.app.DatePickerDialog
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.View
+import android.view.View.OnFocusChangeListener
 import android.widget.*
 import androidx.fragment.app.viewModels
 import com.example.todoapp.databinding.FragmentToMakeListBinding
@@ -40,7 +41,11 @@ class ToMakeListFragment : Fragment(R.layout.fragment_to_make_list) {
         binding.lifecycleOwner=viewLifecycleOwner
         binding.viewModel=viewModel
         val tvMenuName = view.findViewById<TextView>(R.id.editScheduledTime)
-
+        val title = view.findViewById<EditText>(R.id.title)
+        title.onFocusChangeListener = OnFocusChangeListener { v, hasFocus ->
+            if (hasFocus) title.hint=""
+            else title.hint="Your hint"
+        }
         tvMenuName.setOnClickListener{
             //Calendarインスタンスを取得
             //Calendarインスタンスを取得

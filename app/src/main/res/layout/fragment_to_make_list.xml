@@ -14,7 +14,6 @@
         android:focusableInTouchMode="true"
         tools:context=".ToMakeListFragment">
 
-
         <EditText
             android:id="@+id/title"
             android:layout_width="0dp"
@@ -24,7 +23,6 @@
             android:layout_marginEnd="30dp"
             android:background="@drawable/shape_style"
             android:hint="@string/title"
-            android:inputType="text"
             android:text="@={viewModel.title}"
             android:textSize="15sp"
             android:gravity="center"
@@ -38,9 +36,9 @@
             android:layout_height="160dp"
             android:layout_marginTop="30dp"
             android:layout_marginEnd="30dp"
-            android:background="@drawable/shape_style"
             android:hint="@string/memo"
             android:gravity="center"
+            android:background="@drawable/shape_style"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
@@ -67,9 +65,12 @@
                 android:id="@+id/editScheduledTime"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
                 android:background="@drawable/shape_style"
-                android:ems="10"
-                android:text="@{viewModel.scheduledDate}"
+                android:ems="8"
+                android:textColor="#000000"
+                android:textAlignment="center"
+                android:text="@={viewModel.scheduledDate}"
                 tools:layout_editor_absoluteX="32dp"
                 tools:layout_editor_absoluteY="442dp" />
 

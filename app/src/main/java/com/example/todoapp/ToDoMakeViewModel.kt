@@ -12,10 +12,10 @@ class ToDoMakeViewModel : ViewModel(){
 
     init {
         isButtonEnabled.addSource(title){
-            (title.value?.isNotBlank()==true) && (scheduledDate.value?.isNotBlank() == true)
+            isButtonEnabled.value = (title.value?.isNotBlank()==true) && (scheduledDate.value?.isNotBlank() == true)
         }
         isButtonEnabled.addSource(scheduledDate){
-            (title.value?.isNotBlank()==true) && (scheduledDate.value?.isNotBlank() == true)
+            isButtonEnabled.value = (title.value?.isNotBlank()==true) && (scheduledDate.value?.isNotBlank() == true)
         }
     }
 }
