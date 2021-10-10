@@ -21,8 +21,17 @@ class MainActivity : AppCompatActivity() {
         val viewModel: ToDoListViewModel = ViewModelProvider(this).get(ToDoListViewModel::class.java)
         recyclerView = findViewById(R.id.lvMenu)
         recyclerView.layoutManager = LinearLayoutManager(this)
-        val adapter = MyRecyclerViewAdapter(viewModel.menuList)
+        //val adapter = MyRecyclerViewAdapter(viewModel.menuList)
+
+        val adapter = MyRecyclerViewAdapter(viewModel.menuList, object : MyRecyclerViewAdapter.OnItemClickListener {
+            override fun onItemClick(position: Int) {
+                val intentDetailToDoItem = Intent(this@MainActivity,DetailToDoAppActivity::class.java)
+                startActivity(intentDetailToDoItem)
+            }
+        })
+
         recyclerView.adapter = adapter
+
     }
     class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val titleText: TextView
@@ -34,7 +43,7 @@ class MainActivity : AppCompatActivity() {
             checkBox = itemView.findViewById(R.id.checkbox)
         }
     }
-    class MyRecyclerViewAdapter(val mutableList: MutableList<MutableMap<String, String>>) : RecyclerView.Adapter<MyViewHolder>() {
+    class MyRecyclerViewAdapter(val mutableList: MutableList<MutableMap<String, String>>, private val listener: OnItemClickListener) : RecyclerView.Adapter<MyViewHolder>() {
 
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
             val itemView = LayoutInflater.from(parent.context).inflate(R.layout.item, parent, false)
@@ -45,6 +54,9 @@ class MainActivity : AppCompatActivity() {
             holder.timeText.text= mutableList[position].get("time")
         }
         override fun getItemCount(): Int = mutableList.size
+        interface OnItemClickListener {
+            fun onItemClick(position: Int)
+        }
 
     }
     fun onMakeToDoItemClick(view: View){
