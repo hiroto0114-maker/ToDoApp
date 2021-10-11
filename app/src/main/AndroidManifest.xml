@@ -10,6 +10,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ToDoApp">
         <activity
+            android:name=".DetailToDoAppActivity"
+            android:exported="true"
+            android:label="@string/title_activity_detail_to_do_app"
+            android:theme="@style/Theme.ToDoApp.NoActionBar" />
+        <activity
             android:name=".MakeToDoItemActivity"
             android:exported="true" />
         <activity
