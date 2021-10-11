@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.CheckBox
+import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -21,7 +22,6 @@ class MainActivity : AppCompatActivity() {
         val viewModel: ToDoListViewModel = ViewModelProvider(this).get(ToDoListViewModel::class.java)
         recyclerView = findViewById(R.id.lvMenu)
         recyclerView.layoutManager = LinearLayoutManager(this)
-        //val adapter = MyRecyclerViewAdapter(viewModel.menuList)
 
         val adapter = MyRecyclerViewAdapter(viewModel.menuList, object : MyRecyclerViewAdapter.OnItemClickListener {
             override fun onItemClick(position: Int) {
@@ -29,19 +29,15 @@ class MainActivity : AppCompatActivity() {
                 startActivity(intentDetailToDoItem)
             }
         })
-
         recyclerView.adapter = adapter
 
     }
     class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val titleText: TextView
-        val timeText: TextView
-        private val checkBox: CheckBox
-        init {
-            titleText = itemView.findViewById(R.id.title)
-            timeText = itemView.findViewById(R.id.time)
-            checkBox = itemView.findViewById(R.id.checkbox)
-        }
+        val titleText: TextView = itemView.findViewById(R.id.title)
+        val timeText: TextView = itemView.findViewById(R.id.time)
+        val checkBox: CheckBox = itemView.findViewById(R.id.checkbox)
+        val itemLayout: LinearLayout = itemView.findViewById(R.id.toDoDetail)
+
     }
     class MyRecyclerViewAdapter(val mutableList: MutableList<MutableMap<String, String>>, private val listener: OnItemClickListener) : RecyclerView.Adapter<MyViewHolder>() {
 
@@ -50,8 +46,11 @@ class MainActivity : AppCompatActivity() {
             return MyViewHolder(itemView)
         }
         override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
-            holder.titleText.text = mutableList[position].get("title")
-            holder.timeText.text= mutableList[position].get("time")
+            holder.titleText.text = mutableList[position]["title"]
+            holder.timeText.text= mutableList[position]["time"]
+            holder.itemLayout.setOnClickListener{
+                listener.onItemClick(position)
+            }
         }
         override fun getItemCount(): Int = mutableList.size
         interface OnItemClickListener {
